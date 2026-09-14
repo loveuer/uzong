@@ -17,6 +17,7 @@
 ## 技术栈
 
 - Vite + React
+- React Router
 - Tailwind CSS
 - Zustand
 - Vitest
@@ -41,6 +42,19 @@ npm run dev
 
 开发服务器默认监听 `0.0.0.0:6616`，本机可通过 `http://localhost:6616` 访问。
 
+## 页面路由
+
+| 路径 | 页面 |
+| --- | --- |
+| `/` | 学习分类首页 |
+| `/numbers` | 数字乐园 |
+| `/numbers/sort` | 数字排排队 |
+| `/numbers/missing` | 谁不见了？ |
+| `/letters` | 字母天地预告页 |
+| `/words` | 单词森林预告页 |
+
+页面导航由 React Router 管理，支持浏览器前进、后退和直接刷新深层路径。
+
 ## 检查与构建
 
 ```bash
@@ -48,17 +62,31 @@ npm test
 npm run build
 ```
 
+## 部署到 Cloudflare Workers
+
+项目通过 `wrangler.toml` 将 `dist` 作为 Workers 静态资源发布，并配置了 SPA fallback，因此 React Router 的深层路径可以直接打开和刷新。
+
+首次部署前登录 Cloudflare，然后执行：
+
+```bash
+npx wrangler login
+npm run deploy
+```
+
 ## 项目结构
 
 ```text
 src/
-├── App.jsx                    # 页面、分类入口和游戏界面
+├── components/                # 站点布局和共享视觉组件
+├── pages/                     # 与路由对应的页面组件
+├── App.jsx                    # React Router 路由表
+├── content.js                 # 分类、游戏入口和配色数据
 ├── game.js                    # 数字排序规则与状态
 ├── game.test.js               # 数字排序流程测试
 ├── missingNumberGame.js       # 找缺失数字的规则与状态
 ├── missingNumberGame.test.js  # 找缺失数字流程测试
 ├── index.css                  # Tailwind 入口及少量动画
-└── main.jsx                   # React 入口
+└── main.jsx                   # React 与 BrowserRouter 入口
 ```
 
 ## 后续建议
