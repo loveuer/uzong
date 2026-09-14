@@ -1,0 +1,19 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="favicon-body">
+      <path d="M21 20C24 14 28 12 32 12C36 12 40 14 43 20L58 48C62 56 55 60 46 60H18C9 60 2 56 6 48L21 20Z"/>
+    </clipPath>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="#FFF4D8"/>
+  <path d="M21 20C24 14 28 12 32 12C36 12 40 14 43 20L58 48C62 56 55 60 46 60H18C9 60 2 56 6 48L21 20Z" fill="#A9D58A"/>
+  <g clip-path="url(#favicon-body)">
+    <path d="M25 12C20 24 17 40 16 58H7L12 35C17 23 21 15 25 12Z" fill="#82BE76"/>
+    <path d="M39 12C44 24 47 40 48 59H57L52 35C47 23 43 15 39 12Z" fill="#BDE19B"/>
+  </g>
+  <path d="M21 20C24 14 28 12 32 12C36 12 40 14 43 20L58 48C62 56 55 60 46 60H18C9 60 2 56 6 48L21 20Z" stroke="#315C4E" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="25" cy="33" r="2.3" fill="#315C4E"/>
+  <circle cx="39" cy="33" r="2.3" fill="#315C4E"/>
+  <path d="M27 39C29 43 34 44 37 39" stroke="#315C4E" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M11 47C23 45 42 45 54 48" stroke="#F2CE76" stroke-width="4" stroke-linecap="round"/>
+  <path d="M52 47C56 43 60 44 60 47C60 50 56 51 52 49C49 52 45 51 45 48C45 45 49 44 52 47Z" fill="#F7D98C" stroke="#D5A94E" stroke-width="1.7" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,28 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>粽粽学习乐园 Logo</title>
+  <defs>
+    <clipPath id="zong-body">
+      <path d="M41 41C46 31 54 27 64 27C74 27 82 31 87 41L114 90C123 106 110 116 91 117H37C18 116 5 106 14 90L41 41Z"/>
+    </clipPath>
+  </defs>
+  <ellipse cx="64" cy="117" rx="37" ry="6" fill="#315C4E" fill-opacity="0.12"/>
+  <path d="M18 84C12 85 8 81 7 76M110 84C116 85 120 81 121 76" stroke="#477866" stroke-width="6" stroke-linecap="round"/>
+  <path d="M41 41C46 31 54 27 64 27C74 27 82 31 87 41L114 90C123 106 110 116 91 117H37C18 116 5 106 14 90L41 41Z" fill="#A9D58A" stroke="#315C4E" stroke-width="5" stroke-linejoin="round"/>
+  <g clip-path="url(#zong-body)">
+    <path d="M50 28C42 47 34 73 26 119H8V53L50 28Z" fill="#82BE76"/>
+    <path d="M78 28C86 47 94 73 102 119H120V53L78 28Z" fill="#BDE19B"/>
+    <path d="M48 36C54 27 74 27 80 36C80 59 81 87 82 118H48C48 87 48 59 48 36Z" fill="#9ED184"/>
+    <path d="M43 47C36 62 31 79 27 96M85 47C92 62 97 79 102 96" stroke="#6EAD69" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+    <path d="M47 60C42 64 38 67 33 70M81 60C86 64 90 67 95 70" stroke="#6EAD69" stroke-width="2.5" stroke-linecap="round" opacity="0.45"/>
+  </g>
+  <circle cx="49" cy="65" r="4" fill="#315C4E"/>
+  <circle cx="79" cy="65" r="4" fill="#315C4E"/>
+  <circle cx="39" cy="75" r="6" fill="#F3A69B" fill-opacity="0.58"/>
+  <circle cx="89" cy="75" r="6" fill="#F3A69B" fill-opacity="0.58"/>
+  <path d="M54 76C57 82 61 84 64 84C69 84 73 81 75 76" stroke="#315C4E" stroke-width="4" stroke-linecap="round"/>
+  <path d="M23 91C45 87 80 87 106 92" stroke="#F2CE76" stroke-width="7" stroke-linecap="round"/>
+  <path d="M102 90C108 83 116 84 116 89C116 94 109 96 103 93M102 90C97 83 90 84 90 89C90 94 96 96 102 93" fill="#F7D98C" stroke="#D5A94E" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="102" cy="91" r="4" fill="#E2B85D"/>
+  <path d="M39 114C41 120 46 122 51 122M89 114C87 120 82 122 77 122" stroke="#315C4E" stroke-width="5" stroke-linecap="round"/>
+  <path d="M48 40C54 32 74 32 80 40" stroke="#D7EDA9" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+</svg>
