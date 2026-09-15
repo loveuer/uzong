@@ -13,6 +13,7 @@
 - 界面优先为 Pad 设计，重点适配 768×1024 与 1024×768，同时兼容手机与桌面尺寸。
 - 数字卡片采用低饱和粉彩色和深色文字，减少大面积高饱和色带来的视觉疲劳。
 - 支持鼠标、触屏和键盘操作。
+- 支持添加到 iPad 主屏幕，并以独立 Web App 窗口运行。
 
 ## 技术栈
 
@@ -30,6 +31,7 @@
 - 512px PNG Logo：`public/brand/zongzong-logo-512.png`
 - 浏览器 favicon：`public/favicon.svg`、`public/favicon-32.png`
 - Apple Touch Icon：`public/apple-touch-icon.png`
+- Web App Manifest：`public/manifest.webmanifest`
 
 ## 本地运行
 
@@ -41,6 +43,12 @@ npm run dev
 ```
 
 开发服务器默认监听 `0.0.0.0:6616`，本机可通过 `http://localhost:6616` 访问。
+
+## 在 iPad 上全屏使用
+
+Safari 普通标签页不能由网页自动隐藏地址栏。请用 Safari 打开已部署的网站，点击「分享」→「添加到主屏幕」，再从主屏幕打开「粽粽学习乐园」，即可在不显示 Safari 工具栏的独立窗口中使用。
+
+页面已适配 iPad 横竖屏安全区和动态视口。数字排序的卡片在 768px 竖屏下约为 68px，1024px 横屏下约为 90px，并保持 1–9 完整单行展示。
 
 ## 页面路由
 

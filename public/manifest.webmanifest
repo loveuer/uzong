@@ -1,0 +1,21 @@
+{
+  "name": "粽粽学习乐园",
+  "short_name": "粽粽乐园",
+  "description": "用轻松有趣的小游戏认识数字、字母和单词。",
+  "lang": "zh-CN",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#fff9ed",
+  "theme_color": "#fff9ed",
+  "icons": [
+    {
+      "src": "/brand/zongzong-logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

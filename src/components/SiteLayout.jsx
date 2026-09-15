@@ -35,7 +35,7 @@ function Header() {
 
 export default function SiteLayout() {
   return (
-    <div className="flex min-h-screen flex-col overflow-hidden bg-[#fff9ed]">
+    <div className="app-shell flex flex-col overflow-hidden bg-[#fff9ed]">
       <div className="ambient ambient-one" />
       <div className="ambient ambient-two" />
       <Header />
