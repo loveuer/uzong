@@ -12,14 +12,25 @@ const routes = [
   ['/words', '单词森林'],
 ]
 
+function renderPath(path) {
+  return renderToString(
+    <MemoryRouter initialEntries={[path]}>
+      <App />
+    </MemoryRouter>,
+  )
+}
+
 describe('app routes', () => {
   it.each(routes)('%s 可以直接渲染对应页面', (path, heading) => {
-    const html = renderToString(
-      <MemoryRouter initialEntries={[path]}>
-        <App />
-      </MemoryRouter>,
-    )
+    const html = renderPath(path)
 
     expect(html).toContain(heading)
+  })
+
+  it.each(['/numbers/sort', '/numbers/missing'])('%s 使用单屏游戏布局', (path) => {
+    const html = renderPath(path)
+
+    expect(html).toContain('game-shell')
+    expect(html).not.toContain('边玩边学 · 粽粽学习乐园')
   })
 })

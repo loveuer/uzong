@@ -62,7 +62,7 @@ export default function NumberSortPage() {
         : '从 1 开始，按顺序点击数字吧'
 
   return (
-    <main id="main" className="mx-auto flex w-full max-w-6xl flex-1 items-center px-3 pb-6 md:pb-8 lg:px-6">
+    <main id="main" className="mx-auto flex w-full max-w-6xl flex-1 items-center px-3 pb-3 md:pb-4 lg:px-6">
       <section className="relative w-full overflow-hidden rounded-[2rem] border-4 border-white bg-white/90 p-4 shadow-2xl shadow-orange-200/60 md:rounded-[2.5rem] lg:p-7">
         {completed && <Celebration />}
 
@@ -106,12 +106,24 @@ export default function NumberSortPage() {
           </div>
         </div>
 
-        <div className="relative my-4 flex min-h-12 items-center justify-center" aria-live="polite">
-          <div className={`rounded-full px-5 py-2 text-center text-sm font-black transition-all md:text-base ${
-            completed ? 'bg-emerald-100 text-emerald-700' : feedback === 'wrong' ? 'bg-rose-100 text-rose-600' : 'bg-white text-slate-500'
-          }`}>
-            {showHint && !completed ? `找一找：下一个是数字 ${nextNumber} 👀` : message}
-          </div>
+        <div className="relative my-3 flex min-h-14 items-center justify-center" aria-live="polite">
+          {completed ? (
+            <div className="flex w-full items-center justify-between gap-3 rounded-2xl bg-emerald-500 px-4 py-2.5 text-left text-white">
+              <div>
+                <strong className="block font-black md:text-lg">闯关成功，获得 3 颗星！ ⭐⭐⭐</strong>
+                <span className="text-xs font-semibold text-emerald-50 md:text-sm">{mistakes === 0 ? '一次都没有点错，你真细心！' : `练习了 ${mistakes} 次，你坚持完成啦！`}</span>
+              </div>
+              <button type="button" onClick={restartGame} className="shrink-0 rounded-xl bg-white px-4 py-2.5 text-sm font-black text-emerald-600 shadow-md transition hover:-translate-y-0.5 active:scale-95">
+                再玩一次
+              </button>
+            </div>
+          ) : (
+            <div className={`rounded-full px-5 py-2 text-center text-sm font-black transition-all md:text-base ${
+              feedback === 'wrong' ? 'bg-rose-100 text-rose-600' : 'bg-white text-slate-500'
+            }`}>
+              {showHint ? `找一找：下一个是数字 ${nextNumber} 👀` : message}
+            </div>
+          )}
         </div>
 
         <div className="relative rounded-3xl bg-sky-50/80 p-3 md:p-4">
@@ -124,17 +136,6 @@ export default function NumberSortPage() {
           </div>
         </div>
 
-        {completed && (
-          <div className="relative mt-6 flex flex-col items-center justify-between gap-4 rounded-3xl bg-emerald-500 p-5 text-center text-white sm:flex-row sm:text-left">
-            <div>
-              <strong className="block text-xl font-black">闯关成功，获得 3 颗星！ ⭐⭐⭐</strong>
-              <span className="text-sm font-semibold text-emerald-50">{mistakes === 0 ? '一次都没有点错，你真细心！' : `练习了 ${mistakes} 次，你坚持完成啦！`}</span>
-            </div>
-            <button type="button" onClick={restartGame} className="rounded-2xl bg-white px-5 py-3 font-black text-emerald-600 shadow-lg transition hover:-translate-y-0.5 active:scale-95">
-              再玩一次
-            </button>
-          </div>
-        )}
       </section>
     </main>
   )

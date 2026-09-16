@@ -17,4 +17,9 @@ describe('iPad Web App 配置', () => {
       display: 'standalone',
     })
   })
+
+  it('禁止页面缩放', () => {
+    expect(indexHtml).toContain('maximum-scale=1')
+    expect(indexHtml).toContain('user-scalable=no')
+  })
 })

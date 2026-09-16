@@ -37,6 +37,18 @@ body {
   padding-left: env(safe-area-inset-left);
 }
 
+@media (min-width: 768px) and (min-height: 700px) {
+  .game-shell {
+    min-height: 0;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .game-shell > main {
+    min-height: 0;
+  }
+}
+
 button,
 a {
   -webkit-tap-highlight-color: transparent;
