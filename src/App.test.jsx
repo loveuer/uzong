@@ -34,4 +34,13 @@ describe('app routes', () => {
     expect(html).toContain('game-shell')
     expect(html).not.toContain('边玩边学 · 粽粽学习乐园')
   })
+
+  it('数字找朋友使用三种物品图标', () => {
+    const html = renderPath('/numbers/match')
+
+    expect(html).toContain('🍎')
+    expect(html).toContain('🍌')
+    expect(html).toContain('🚗')
+    expect(html).not.toContain('🌱')
+  })
 })

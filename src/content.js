@@ -48,9 +48,9 @@ export const numberGames = [
   },
   {
     path: '/numbers/match',
-    icon: '🌱',
+    icon: '🍎',
     name: '数字找朋友',
-    description: '数一数小芽，把数字和数量配成一对',
+    description: '数一数物品，把数字和数量配成一对',
     card: 'from-emerald-100 to-lime-50 border-emerald-200 hover:shadow-emerald-200',
     iconColor: 'bg-emerald-200',
   },

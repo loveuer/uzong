@@ -2,6 +2,12 @@ import Celebration from '../components/Celebration'
 import { numberColors } from '../content'
 import { MATCHING_TOTAL_ROUNDS, useMatchingNumberGame } from '../matchingNumberGame'
 
+const quantityObjects = [
+  { icon: '🍎', name: '苹果' },
+  { icon: '🍌', name: '香蕉' },
+  { icon: '🚗', name: '小汽车' },
+]
+
 function NumberCard({ number, matched, selected, wrong, onChoose }) {
   return (
     <button
@@ -19,19 +25,19 @@ function NumberCard({ number, matched, selected, wrong, onChoose }) {
   )
 }
 
-function QuantityCard({ quantity, matched, selected, wrong, onChoose }) {
+function QuantityCard({ quantity, object, matched, selected, wrong, onChoose }) {
   return (
     <button
       type="button"
       disabled={matched}
       onClick={() => onChoose(quantity)}
-      aria-label={matched ? `${quantity} 个小芽已配对` : `选择 ${quantity} 个小芽`}
+      aria-label={matched ? `${quantity} 个${object.name}已配对` : `选择 ${quantity} 个${object.name}`}
       className={`relative flex h-20 w-full items-center justify-center rounded-2xl border-2 bg-white shadow-sm transition md:h-24 md:rounded-3xl ${
         matched ? 'border-emerald-200 bg-emerald-50 opacity-55' : 'border-white active:scale-95'
       } ${selected ? 'ring-4 ring-sky-300' : ''} ${wrong ? 'animate-wiggle ring-4 ring-rose-300' : ''}`}
     >
-      <span className="flex max-w-[4.75rem] flex-wrap justify-center gap-0.5" aria-hidden="true">
-        {Array.from({ length: quantity }, (_, index) => <span key={index} className="w-5 text-lg leading-none md:w-6 md:text-2xl">🌱</span>)}
+      <span className="flex max-w-[6.25rem] flex-wrap justify-center gap-0.5" aria-hidden="true">
+        {Array.from({ length: quantity }, (_, index) => <span key={index} className="w-7 text-2xl leading-none md:w-8 md:text-3xl">{object.icon}</span>)}
       </span>
       {matched && <span className="absolute right-2 top-2 text-base font-black text-emerald-600" aria-hidden="true">✓</span>}
     </button>
@@ -65,7 +71,7 @@ export default function MatchingNumberPage() {
         : feedback === 'correct'
           ? '找到朋友啦，继续加油！'
           : selectedNumber !== null
-            ? `找一找：哪张卡有 ${selectedNumber} 个小芽？`
+            ? `找一找：哪张卡有 ${selectedNumber} 个物品？`
             : selectedQuantity !== null
               ? '数一数，再选择左边的数字'
               : '先点一张卡，再找它的好朋友'
@@ -81,7 +87,7 @@ export default function MatchingNumberPage() {
               <span className="h-2 w-2 rounded-full bg-emerald-400" /> 数字小游戏 · 第 3 关
             </div>
             <h1 className="text-3xl font-black tracking-tight text-slate-800 md:text-4xl">数字找朋友</h1>
-            <p className="mt-1 text-sm font-semibold text-slate-500 md:text-base">把数字和相同数量的小芽配成一对</p>
+            <p className="mt-1 text-sm font-semibold text-slate-500 md:text-base">把数字和相同数量的物品配成一对</p>
           </div>
 
           <div className="flex shrink-0 items-center gap-3">
@@ -115,10 +121,11 @@ export default function MatchingNumberPage() {
           <section className="rounded-3xl bg-emerald-50/80 p-3 md:p-4" aria-labelledby="quantity-cards-heading">
             <h2 id="quantity-cards-heading" className="mb-3 text-center text-sm font-black text-slate-700 md:text-base">数量卡</h2>
             <div className="grid gap-2.5 md:gap-3">
-              {quantities.map((quantity) => (
+              {quantities.map((quantity, index) => (
                 <QuantityCard
                   key={quantity}
                   quantity={quantity}
+                  object={quantityObjects[index]}
                   matched={matched.includes(quantity)}
                   selected={selectedQuantity === quantity}
                   wrong={feedback === 'wrong' && selectedQuantity === quantity}
