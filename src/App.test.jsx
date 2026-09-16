@@ -8,6 +8,7 @@ const routes = [
   ['/numbers', '今天玩哪个？'],
   ['/numbers/sort', '数字排排队'],
   ['/numbers/missing', '谁不见了？'],
+  ['/numbers/match', '数字找朋友'],
   ['/letters', '字母天地'],
   ['/words', '单词森林'],
 ]
@@ -27,7 +28,7 @@ describe('app routes', () => {
     expect(html).toContain(heading)
   })
 
-  it.each(['/numbers/sort', '/numbers/missing'])('%s 使用单屏游戏布局', (path) => {
+  it.each(['/numbers/sort', '/numbers/missing', '/numbers/match'])('%s 使用单屏游戏布局', (path) => {
     const html = renderPath(path)
 
     expect(html).toContain('game-shell')

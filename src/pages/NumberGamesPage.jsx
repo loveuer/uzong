@@ -10,12 +10,12 @@ export default function NumberGamesPage() {
         <p className="mt-3 font-semibold text-slate-500">选一个小游戏，和数字交朋友</p>
       </section>
 
-      <nav aria-label="数字小游戏" className="grid gap-5 sm:grid-cols-2 sm:gap-7">
+      <nav aria-label="数字小游戏" className="grid gap-5 sm:grid-cols-2 sm:gap-7 md:grid-cols-3 md:gap-4">
         {numberGames.map((game, index) => (
           <Link
             key={game.path}
             to={game.path}
-            className={`group relative block min-h-64 overflow-hidden rounded-[2rem] border-2 bg-gradient-to-br p-7 text-left shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl active:scale-[0.98] sm:min-h-80 sm:p-9 ${game.card}`}
+            className={`group relative block min-h-64 overflow-hidden rounded-[2rem] border-2 bg-gradient-to-br p-7 text-left shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl active:scale-[0.98] sm:min-h-80 sm:p-9 md:min-h-72 md:p-6 ${game.card}`}
           >
             <span className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-white/45" aria-hidden="true" />
             <span className={`relative grid h-24 w-24 place-items-center rounded-[1.75rem] text-5xl shadow-lg ${game.iconColor}`} aria-hidden="true">

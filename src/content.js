@@ -46,6 +46,14 @@ export const numberGames = [
     card: 'from-sky-100 to-cyan-50 border-sky-200 hover:shadow-sky-200',
     iconColor: 'bg-sky-200',
   },
+  {
+    path: '/numbers/match',
+    icon: '🌱',
+    name: '数字找朋友',
+    description: '数一数小芽，把数字和数量配成一对',
+    card: 'from-emerald-100 to-lime-50 border-emerald-200 hover:shadow-emerald-200',
+    iconColor: 'bg-emerald-200',
+  },
 ]
 
 export const numberColors = [
