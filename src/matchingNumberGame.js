@@ -78,6 +78,20 @@ export const useMatchingNumberGame = create((set, get) => {
       set({ selectedQuantity: quantity, feedback: 'selected' })
     },
 
+    connectPair(number, quantity) {
+      const state = get()
+      if (
+        state.finished
+        || state.roundComplete
+        || state.matched.includes(number)
+        || state.matched.includes(quantity)
+        || !state.numbers.includes(number)
+        || !state.quantities.includes(quantity)
+      ) return
+
+      checkPair(number, quantity)
+    },
+
     nextRound() {
       const state = get()
       if (!state.roundComplete || state.finished) return

@@ -43,4 +43,12 @@ describe('app routes', () => {
     expect(html).toContain('🚗')
     expect(html).not.toContain('🌱')
   })
+
+  it('数字找朋友提供触摸连线和点击替代操作', () => {
+    const html = renderPath('/numbers/match')
+
+    expect(html).toContain('按住卡片拖动连线')
+    expect(html).toContain('data-match-side="number"')
+    expect(html).toContain('<svg')
+  })
 })

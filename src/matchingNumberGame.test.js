@@ -33,6 +33,17 @@ describe('matching number game', () => {
     expect(useMatchingNumberGame.getState()).toMatchObject({ matched: [number], feedback: 'correct', selectedNumber: null, selectedQuantity: null })
   })
 
+  it('连线可以直接提交两端，不受之前选择影响', () => {
+    const state = useMatchingNumberGame.getState()
+    const number = state.numbers[0]
+    const wrongQuantity = state.quantities.find((quantity) => quantity !== number)
+
+    state.chooseQuantity(wrongQuantity)
+    useMatchingNumberGame.getState().connectPair(number, number)
+
+    expect(useMatchingNumberGame.getState()).toMatchObject({ matched: [number], feedback: 'correct', selectedNumber: null, selectedQuantity: null })
+  })
+
   it('配完三组后才可以进入下一轮', () => {
     const numbers = useMatchingNumberGame.getState().numbers
     numbers.forEach((number) => {
