@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Celebration from '../components/Celebration'
+import ReplayButton from '../components/ReplayButton'
 import { numberColors } from '../content'
 import { NUMBERS, useNumberGame } from '../game'
 
@@ -80,9 +81,7 @@ export default function NumberSortPage() {
               <span className="block text-[10px] font-bold text-amber-600">进度</span>
               <strong className="text-lg text-amber-600">{placed.length} / 9</strong>
             </div>
-            <button type="button" onClick={restartGame} className="rounded-2xl bg-slate-100 px-4 py-3 text-sm font-black text-slate-600 transition hover:bg-slate-200 active:scale-95">
-              ↻ 重新开始
-            </button>
+            <ReplayButton onClick={restartGame} label="重新开始" />
           </div>
         </div>
 
@@ -113,9 +112,7 @@ export default function NumberSortPage() {
                 <strong className="block font-black md:text-lg">闯关成功，获得 3 颗星！ ⭐⭐⭐</strong>
                 <span className="text-xs font-semibold text-emerald-50 md:text-sm">{mistakes === 0 ? '一次都没有点错，你真细心！' : `练习了 ${mistakes} 次，你坚持完成啦！`}</span>
               </div>
-              <button type="button" onClick={restartGame} className="shrink-0 rounded-xl bg-white px-4 py-2.5 text-sm font-black text-emerald-600 shadow-md transition hover:-translate-y-0.5 active:scale-95">
-                再玩一次
-              </button>
+              <ReplayButton onClick={restartGame} label="再玩一次" celebration />
             </div>
           ) : (
             <div className={`rounded-full px-5 py-2 text-center text-sm font-black transition-all md:text-base ${

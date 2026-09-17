@@ -1,4 +1,5 @@
 import { Link, Outlet, useLocation } from 'react-router-dom'
+import FullscreenButton from './FullscreenButton'
 
 function Header({ compact }) {
   const { pathname } = useLocation()
@@ -25,8 +26,11 @@ function Header({ compact }) {
           ← {backLabel}
         </Link>
       ) : (
-        <div className="hidden items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-sm font-bold text-amber-600 shadow-sm ring-1 ring-amber-100 sm:flex">
-          <span aria-hidden="true">⭐</span> 今天也要加油呀！
+        <div className="flex items-center gap-3">
+          <div className="hidden items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-sm font-bold text-amber-600 shadow-sm ring-1 ring-amber-100 lg:flex">
+            <span aria-hidden="true">⭐</span> 今天也要加油呀！
+          </div>
+          <FullscreenButton />
         </div>
       )}
     </header>

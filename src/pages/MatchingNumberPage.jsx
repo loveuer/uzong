@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Celebration from '../components/Celebration'
+import ReplayButton from '../components/ReplayButton'
 import { numberColors } from '../content'
 import { MATCHING_TOTAL_ROUNDS, useMatchingNumberGame } from '../matchingNumberGame'
 
@@ -225,9 +226,7 @@ export default function MatchingNumberPage() {
               <span className="block text-[10px] font-bold text-emerald-600">轮次</span>
               <strong className="text-lg text-emerald-700">{round} / {MATCHING_TOTAL_ROUNDS}</strong>
             </div>
-            <button type="button" onClick={restart} className="rounded-2xl bg-slate-100 px-4 py-3 text-sm font-black text-slate-600 transition hover:bg-slate-200 active:scale-95">
-              ↻ 重新开始
-            </button>
+            <ReplayButton onClick={restart} label="重新开始" />
           </div>
         </div>
 
@@ -309,9 +308,7 @@ export default function MatchingNumberPage() {
             </button>
           )}
           {finished && (
-            <button type="button" onClick={restart} className="rounded-xl bg-white px-5 py-2.5 text-sm font-black text-emerald-600 shadow-md ring-1 ring-emerald-100 transition hover:-translate-y-0.5 active:scale-95">
-              再玩一轮
-            </button>
+            <ReplayButton onClick={restart} label="再玩一轮" celebration />
           )}
         </div>
 

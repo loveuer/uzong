@@ -51,6 +51,8 @@
 - `src/App.jsx`：集中维护路由表，不放具体页面实现。
 - `src/components/SiteLayout.jsx`：全站 Header、返回导航、背景与 Footer。
 - `src/components/Celebration.jsx`：游戏共享的通关动画。
+- `src/components/FullscreenButton.jsx`：首页全屏切换及 iPad Safari 不支持时的主屏幕安装提示。
+- `src/components/ReplayButton.jsx`：游戏内统一的图形化重新开始/再玩按钮。
 - `src/pages/`：首页、分类页和各游戏页面。
 - `src/content.js`：分类入口、游戏入口和共享数字配色。
 - `src/game.js`：可测试的游戏规则、洗牌和 Zustand 状态。
@@ -67,6 +69,8 @@
 
 - 品牌名称固定为「粽粽学习乐园」，Logo 使用 `public/brand/zongzong-logo.svg`，favicon 使用 `public/favicon.svg`。
 - 面向儿童：点击目标要大，反馈即时，文案简短且积极，避免惩罚性表述。
+- 重新开始、再玩一次等关键流程按钮必须以无需识字也能理解的醒目图形为主、文字为辅；统一使用 `ReplayButton`，不要退化为纯文字按钮。
+- 首页全屏按钮必须保留能力检测和 iPad 主屏幕安装提示；不得假设所有 Safari 版本都支持 Fullscreen API，也不得尝试自动进入全屏。
 - 不只依赖颜色表达状态；重要结果同时使用文字或图形。
 - 所有可交互元素必须可通过键盘操作，并提供清晰的焦点样式和可访问名称。
 - 动画必须尊重 `prefers-reduced-motion`。

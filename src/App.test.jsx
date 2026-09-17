@@ -35,6 +35,18 @@ describe('app routes', () => {
     expect(html).not.toContain('边玩边学 · 粽粽学习乐园')
   })
 
+  it.each(['/numbers/sort', '/numbers/missing', '/numbers/match'])('%s 使用图形化重玩按钮', (path) => {
+    const html = renderPath(path)
+
+    expect(html).toContain('data-replay-button="true"')
+    expect(html).toContain('aria-hidden="true" viewBox="0 0 48 48"')
+  })
+
+  it('只在首页显示全屏切换按钮', () => {
+    expect(renderPath('/')).toContain('data-fullscreen-button="true"')
+    expect(renderPath('/numbers')).not.toContain('data-fullscreen-button="true"')
+  })
+
   it('数字找朋友使用三种物品图标', () => {
     const html = renderPath('/numbers/match')
 
