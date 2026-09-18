@@ -4,8 +4,9 @@ import FullscreenButton from './FullscreenButton'
 function Header({ compact }) {
   const { pathname } = useLocation()
   const insideNumberGame = pathname.startsWith('/numbers/')
-  const backTo = insideNumberGame ? '/numbers' : '/'
-  const backLabel = insideNumberGame ? '数字乐园' : '返回首页'
+  const insideLetterGame = pathname.startsWith('/letters/')
+  const backTo = insideNumberGame ? '/numbers' : insideLetterGame ? '/letters' : '/'
+  const backLabel = insideNumberGame ? '数字乐园' : insideLetterGame ? '字母天地' : '返回首页'
 
   return (
     <header className={`mx-auto flex w-full max-w-6xl items-center justify-between ${compact ? 'px-4 py-3 md:px-6' : 'px-5 py-5 sm:px-8'}`}>
@@ -39,7 +40,7 @@ function Header({ compact }) {
 
 export default function SiteLayout() {
   const { pathname } = useLocation()
-  const gamePage = pathname.startsWith('/numbers/')
+  const gamePage = pathname.startsWith('/numbers/') || pathname.startsWith('/letters/')
 
   return (
     <div className={`app-shell flex flex-col overflow-hidden bg-[#fff9ed] ${gamePage ? 'game-shell' : ''}`}>

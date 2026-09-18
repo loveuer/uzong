@@ -16,6 +16,10 @@
 - 「谁不见了？」：每题隐藏 1–9 中的一个数字，并提供三个不重复选项。基础模式保持顺序并在缺失位置显示问号；挑战模式将八个可见数字和问号完全打乱。答对后进入下一题，完成五题后通关，错误选择不推进题目；切换难度会重置本轮。
 - 「数字找朋友」：每轮随机展示三个数字和三张对应数量的物品卡片，物品使用苹果、香蕉和小汽车；主要操作是在两侧卡片间拖动连线，同时保留依次点击两张卡片的替代操作。完成三组后进入下一轮，五轮后通关，错误配对不推进进度。
 
+字母类当前包含一个游戏：
+
+- 「字母点点读」：点击 A–Z 卡片播放美式英语字母名称，可切换大小写显示；优先读取 R2 录音，未配置或播放失败时使用浏览器 SpeechSynthesis。
+
 首页负责展示数字、字母、单词三个一级入口；具体游戏页面不重复显示一级分类导航。尚未开发的分类可以进入预告页，但不要在游戏主区域占位。
 
 ## Pad First（首要原则）
@@ -36,13 +40,14 @@
 - 组件使用函数组件和 Hooks；状态仅在跨组件或属于游戏流程时放入 Zustand。
 - 页面级导航必须由 React Router 和 URL 管理，不得用组件内 `view`、`currentPage` 等状态模拟路由。
 - 样式优先使用 Tailwind 工具类，只有动画、全局规则等不适合工具类的内容写入 `src/index.css`。
-- 不为纯本地玩法添加后端。只有账号、跨设备学习记录、排行榜等确需服务端的功能，才使用 Gin + GORM。
+- 后端固定使用 Node.js + Express，数据库访问使用 Drizzle ORM + PostgreSQL。前后端独立部署，不要把 Express 打包进 Cloudflare Workers 前端。
+- 字母录音存放在 Cloudflare R2，Express 只返回内容与音频元数据，不代理音频文件；前端在录音未配置时可使用 SpeechSynthesis 兜底。
 - 不提前引入组件库、请求库或其他抽象层；出现实际需求后再添加。
 
 ## 路由约定
 
 - 路由统一定义在 `src/App.jsx`；页面组件放在 `src/pages/`，共享布局放在 `src/components/`。
-- 当前路径为 `/`、`/numbers`、`/numbers/sort`、`/numbers/missing`、`/numbers/match`、`/letters`、`/words`；新增页面时使用语义清晰的层级路径。
+- 当前路径为 `/`、`/numbers`、`/numbers/sort`、`/numbers/missing`、`/numbers/match`、`/letters`、`/letters/listen`、`/words`；新增页面时使用语义清晰的层级路径。
 - 内部导航使用 React Router 的 `Link` 或 `Navigate`，不要使用普通 `<a>` 触发整页刷新，也不要直接操作 `window.location`。
 - 未匹配路径回到首页。Cloudflare Workers 部署必须保留 `wrangler.toml` 中的 `not_found_handling = "single-page-application"`，保证深层 URL 刷新可用。
 
@@ -61,7 +66,12 @@
 - `src/missingNumberGame.test.js`：找缺失数字的核心行为测试。
 - `src/matchingNumberGame.js`：数字与数量配对的出题规则和独立 Zustand 状态。
 - `src/matchingNumberGame.test.js`：数字配对的核心行为测试。
+- `src/letterAudio.js`：字母录音播放与浏览器语音合成兜底。
+- `src/letterAudio.test.js`：字母发音地址和兜底行为测试。
 - `src/index.css`：Tailwind 入口、全局基础样式和关键帧动画。
+- `server/src/app.js`：Express 应用和 API 路由，不负责监听端口。
+- `server/src/index.js`：后端进程入口和优雅退出。
+- `server/src/db/`：Drizzle 数据库连接和 PostgreSQL schema。
 
 新增小游戏时，优先将其规则放到独立文件，并为异常输入和通关流程补测试。不要让多个小游戏共用一个不断膨胀的 store。
 
@@ -89,6 +99,7 @@
 npm test
 npm run build
 npx wrangler deploy --dry-run
+(cd server && npm test)
 ```
 
 如果新增了命令、目录、玩法或后端依赖，同步更新 `README.md` 和本文件。

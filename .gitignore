@@ -1,5 +1,9 @@
 node_modules/
 dist/
 .vite/
+pnpm-lock.yaml
 *.local
+.env
+.env.*
+!.env.example
 output/imagegen/

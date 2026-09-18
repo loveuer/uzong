@@ -17,6 +17,7 @@ export const categories = [
     description: '认识字母，听见不一样的声音',
     card: 'from-sky-100 to-cyan-50 border-sky-200 hover:shadow-sky-200',
     iconColor: 'from-sky-400 to-cyan-500 shadow-sky-200',
+    active: true,
   },
   {
     id: 'words',
@@ -53,6 +54,17 @@ export const numberGames = [
     description: '数一数物品，把数字和数量配成一对',
     card: 'from-emerald-100 to-lime-50 border-emerald-200 hover:shadow-emerald-200',
     iconColor: 'bg-emerald-200',
+  },
+]
+
+export const letterGames = [
+  {
+    path: '/letters/listen',
+    icon: '🔊',
+    name: '字母点点读',
+    description: '点一点 A–Z，听听每个字母怎么读',
+    card: 'from-sky-100 to-cyan-50 border-sky-200 hover:shadow-sky-200',
+    iconColor: 'bg-sky-200',
   },
 ]
 

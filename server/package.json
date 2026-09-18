@@ -1,0 +1,29 @@
+{
+  "name": "zongzong-learning-api",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate"
+  },
+  "dependencies": {
+    "cors": "latest",
+    "dotenv": "latest",
+    "drizzle-orm": "latest",
+    "express": "latest",
+    "pg": "latest"
+  },
+  "devDependencies": {
+    "drizzle-kit": "latest",
+    "supertest": "latest",
+    "vitest": "latest"
+  }
+}
