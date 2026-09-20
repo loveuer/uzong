@@ -55,6 +55,14 @@ export const numberGames = [
     card: 'from-emerald-100 to-lime-50 border-emerald-200 hover:shadow-emerald-200',
     iconColor: 'bg-emerald-200',
   },
+  {
+    path: '/numbers/addition',
+    icon: '🍓',
+    name: '水果加一加',
+    description: '把两组水果合在一起，认识加法的意思',
+    card: 'from-rose-100 to-pink-50 border-rose-200 hover:shadow-rose-200',
+    iconColor: 'bg-rose-200',
+  },
 ]
 
 export const letterGames = [

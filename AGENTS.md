@@ -10,11 +10,12 @@
 2. 字母类
 3. 单词类
 
-数字类当前包含三个游戏：
+数字类当前包含四个游戏：
 
 - 「数字排排队」：上方打乱展示 1–9，孩子必须从 1 开始依次选择，正确数字进入下方九个槽位，错误选择不改变排序进度。
 - 「谁不见了？」：每题隐藏 1–9 中的一个数字，并提供三个不重复选项。基础模式保持顺序并在缺失位置显示问号；挑战模式将八个可见数字和问号完全打乱。答对后进入下一题，完成五题后通关，错误选择不推进题目；切换难度会重置本轮。
 - 「数字找朋友」：每轮随机展示三个数字和三张对应数量的物品卡片，物品使用苹果、香蕉和小汽车；主要操作是在两侧卡片间拖动连线，同时保留依次点击两张卡片的替代操作。完成三组后进入下一轮，五轮后通关，错误配对不推进进度。
+- 「水果加一加」：每题随机使用苹果、香蕉、橘子、草莓或葡萄 emoji 展示两组相同水果，两个加数为 1–5 且总数不超过 9。孩子从三个数字中选择合并后的总数；答对后展示完整算式与合并结果，完成五题通关，错误选择不推进题目。
 
 字母类当前包含一个游戏：
 
@@ -47,7 +48,7 @@
 ## 路由约定
 
 - 路由统一定义在 `src/App.jsx`；页面组件放在 `src/pages/`，共享布局放在 `src/components/`。
-- 当前路径为 `/`、`/numbers`、`/numbers/sort`、`/numbers/missing`、`/numbers/match`、`/letters`、`/letters/listen`、`/words`；新增页面时使用语义清晰的层级路径。
+- 当前路径为 `/`、`/numbers`、`/numbers/sort`、`/numbers/missing`、`/numbers/match`、`/numbers/addition`、`/letters`、`/letters/listen`、`/words`；新增页面时使用语义清晰的层级路径。
 - 内部导航使用 React Router 的 `Link` 或 `Navigate`，不要使用普通 `<a>` 触发整页刷新，也不要直接操作 `window.location`。
 - 未匹配路径回到首页。Cloudflare Workers 部署必须保留 `wrangler.toml` 中的 `not_found_handling = "single-page-application"`，保证深层 URL 刷新可用。
 
@@ -66,6 +67,8 @@
 - `src/missingNumberGame.test.js`：找缺失数字的核心行为测试。
 - `src/matchingNumberGame.js`：数字与数量配对的出题规则和独立 Zustand 状态。
 - `src/matchingNumberGame.test.js`：数字配对的核心行为测试。
+- `src/additionGame.js`：图片加法的出题规则和独立 Zustand 状态。
+- `src/additionGame.test.js`：图片加法的正常、错误和通关流程测试。
 - `src/letterAudio.js`：字母录音播放与浏览器语音合成兜底。
 - `src/letterAudio.test.js`：字母发音地址和兜底行为测试。
 - `src/index.css`：Tailwind 入口、全局基础样式和关键帧动画。

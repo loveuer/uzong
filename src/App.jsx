@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import SiteLayout from './components/SiteLayout'
 import { categories } from './content'
+import AdditionPage from './pages/AdditionPage'
 import ComingSoonPage from './pages/ComingSoonPage'
 import HomePage from './pages/HomePage'
 import LetterGamesPage from './pages/LetterGamesPage'
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="numbers/sort" element={<NumberSortPage />} />
         <Route path="numbers/missing" element={<MissingNumberPage />} />
         <Route path="numbers/match" element={<MatchingNumberPage />} />
+        <Route path="numbers/addition" element={<AdditionPage />} />
         <Route path="letters" element={<LetterGamesPage />} />
         <Route path="letters/listen" element={<LetterListenPage />} />
         <Route path="words" element={<ComingSoonPage category={categories[2]} />} />
